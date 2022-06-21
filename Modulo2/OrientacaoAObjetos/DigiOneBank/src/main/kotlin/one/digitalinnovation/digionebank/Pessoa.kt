@@ -9,11 +9,9 @@ class Pessoa {
         var rua: String = "Rua teste"
     }
 
-}
+    constructor()
 
-fun main(){
-    val p = Pessoa()
-
-    println("Nome: ${p.nome}; cpf: ${p.cpf}")
-    println(p.Endereco().rua )
+    override fun toString(): String {
+        return "$nome e $cpf"
+    }
 }
