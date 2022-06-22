@@ -1,7 +1,5 @@
 package one.digitalinnovation.digionebank
 
-import java.math.BigDecimal
-
 class Analista(
     nome: String,
     cpf: String,
@@ -10,9 +8,17 @@ class Analista(
     override fun calculoAuxilio(): Double = salario.times(0.1)
 }
 
+class Gerente(
+    nome: String,
+    cpf: String,
+    salario: Double)
+    : Funcionario(nome, cpf, salario) {
+    override fun calculoAuxilio() = salario.times(0.4)
+
+}
 fun main(){
     val joao = Analista("Joao Perdor", "1235454768", 2000.0)
-    imprimeRelatorio(joao)
-}
+    val maria = Gerente("Maria Maria", "8764312345", 5000.0)
 
-fun imprimeRelatorio(f: Funcionario) = println(f.toString())
+    Relatorio.imprimir(maria)
+}
