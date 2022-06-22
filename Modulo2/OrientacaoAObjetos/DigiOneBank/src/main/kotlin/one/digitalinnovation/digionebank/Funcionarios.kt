@@ -11,14 +11,17 @@ class Analista(
 class Gerente(
     nome: String,
     cpf: String,
-    salario: Double)
-    : Funcionario(nome, cpf, salario) {
+    salario: Double,
+    val senha: String)
+    : Funcionario(nome, cpf, salario), Logavel {
     override fun calculoAuxilio() = salario.times(0.4)
+
+    override fun login() = senha == "1234"
+
 
 }
 fun main(){
-    val joao = Analista("Joao Perdor", "1235454768", 2000.0)
-    val maria = Gerente("Maria Maria", "8764312345", 5000.0)
+    //Teste Autenticacao
 
-    Relatorio.imprimir(maria)
+
 }
