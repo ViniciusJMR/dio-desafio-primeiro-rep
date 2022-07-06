@@ -21,4 +21,6 @@ fun main(){
     funcionarios
         .groupBy{it.tipo}
         .forEach{println(it)}
+
+    funcionarios.sortBy { it.salario }
 }
