@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Matches Simulator App</string>
-    <string name="txt_simulate">Botão de simular partidas</string>
+    <string name="cd_simulate">Botão de simular partidas</string>
+    <string name="cd_first_team">Imagem do time mandante</string>
+    <string name="cd_second_team">Imagem do time de visitante</string>
+    <string name="txt_versus" translatable="false">X</string>
 </resources>
