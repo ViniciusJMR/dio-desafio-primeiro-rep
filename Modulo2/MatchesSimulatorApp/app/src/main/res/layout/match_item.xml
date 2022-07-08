@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivFirstTeam"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvFirstTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ivFirstTeam"
+            app:layout_constraintStart_toStartOf="@+id/ivFirstTeam"
+            app:layout_constraintTop_toBottomOf="@+id/ivFirstTeam" />
+
+        <TextView
+            android:id="@+id/tvFirstTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="99"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/ivFirstTeam"
+            app:layout_constraintStart_toEndOf="@+id/ivFirstTeam"
+            app:layout_constraintTop_toTopOf="@+id/ivFirstTeam" />
+
+        <ImageView
+            android:id="@+id/ivSecondTeam"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSecondTeamScore"
+            app:layout_constraintStart_toEndOf="@+id/tvSecondTeamScore"
+            app:layout_constraintTop_toTopOf="@+id/tvSecondTeamScore"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvSecondTeamName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="nome"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/ivSecondTeam"
+            app:layout_constraintStart_toStartOf="@+id/ivSecondTeam" />
+
+        <TextView
+            android:id="@+id/tvScoreSeparator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="x"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/tvFirstTeamScore"
+            app:layout_constraintStart_toEndOf="@+id/tvFirstTeamScore"
+            app:layout_constraintTop_toTopOf="@+id/tvFirstTeamScore" />
+
+        <TextView
+            android:id="@+id/tvSecondTeamScore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="99"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/tvScoreSeparator"
+            app:layout_constraintStart_toEndOf="@+id/tvScoreSeparator"
+            app:layout_constraintTop_toTopOf="@+id/tvScoreSeparator" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
