@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Matches Simulator App</string>
+    <string name="txt_simulate">Botão de simular partidas</string>
 </resources>
