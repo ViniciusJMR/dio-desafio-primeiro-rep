@@ -1,4 +1,4 @@
-package me.dio.matchessimulatorapp
+package me.dio.matchessimulatorapp.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
