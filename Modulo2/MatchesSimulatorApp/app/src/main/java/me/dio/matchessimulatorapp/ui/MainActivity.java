@@ -5,6 +5,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -14,6 +15,7 @@ import me.dio.matchessimulatorapp.R;
 import me.dio.matchessimulatorapp.data.MatchesAPI;
 import me.dio.matchessimulatorapp.databinding.ActivityMainBinding;
 import me.dio.matchessimulatorapp.domain.Match;
+import me.dio.matchessimulatorapp.ui.adapter.MatchesAdapter;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
     private MatchesAPI api;
+    private MatchesAdapter matchesAdapter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -55,12 +58,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupMatchesList() {
+        binding.rvMatches.setHasFixedSize(true);
+        binding.rvMatches.setLayoutManager(new LinearLayoutManager(this));
+
         api.getMatches().enqueue(new Callback<List<Match>>() {
             @Override
             public void onResponse(Call<List<Match>> call, Response<List<Match>> response) {
                 if(response.isSuccessful()){
                     List<Match> matches = response.body();
-                    Log.i("SIMULATOR", "Deu tudo certo! Partidas = " + matches.size());
+                    matchesAdapter = new MatchesAdapter(matches);
+                    binding.rvMatches.setAdapter(matchesAdapter);
                 } else{
                     showErrorMessage();
                 }
