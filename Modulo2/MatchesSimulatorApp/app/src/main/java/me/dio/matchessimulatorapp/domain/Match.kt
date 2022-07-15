@@ -1,7 +1,10 @@
 package me.dio.matchessimulatorapp.domain
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Match(
 
     @SerializedName("descricao")
@@ -12,6 +15,6 @@ data class Match(
     val homeTeam: Team,
     @SerializedName("visitante")
     val awayTeam: Team
-) {
+) : Parcelable{
 
 }

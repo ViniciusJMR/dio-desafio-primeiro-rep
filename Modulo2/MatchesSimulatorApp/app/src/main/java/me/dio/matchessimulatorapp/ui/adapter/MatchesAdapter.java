@@ -1,10 +1,12 @@
 package me.dio.matchessimulatorapp.ui.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ComponentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -13,6 +15,7 @@ import java.util.List;
 
 import me.dio.matchessimulatorapp.databinding.MatchItemBinding;
 import me.dio.matchessimulatorapp.domain.Match;
+import me.dio.matchessimulatorapp.ui.DetailActivity;
 
 public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHolder> {
 
@@ -63,6 +66,11 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHold
         }
         holder.binding.tvSecondTeamName.setText(match.getAwayTeam().getName());
 
+        holder.itemView.setOnClickListener(view -> {
+            Intent intent = new Intent(context, DetailActivity.class);
+            intent.putExtra(DetailActivity.Extras.MATCH, match);
+            context.startActivity(intent);
+        });
     }
 
     @Override
