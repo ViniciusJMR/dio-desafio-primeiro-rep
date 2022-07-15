@@ -1,5 +1,7 @@
 package me.dio.matchessimulatorapp.ui;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -41,11 +43,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupFloatActionButton() {
-        //TODO Criar evento de click e simulação de partidas
+        binding.fabSimulate.setOnClickListener(view -> {
+            view.animate().rotationBy(360).setDuration(500).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    //TODO Implementar o algoritmo de simulação de partidas
+                }
+            });
+        });
     }
 
     private void setupMatchesRefresh() {
-        //TODO Atualizar as partidas na ação de swipe
+        binding.srlMatches.setOnRefreshListener(this::findMatchesFromApi);
     }
 
     private void setupHttpClient(){
@@ -61,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
         binding.rvMatches.setHasFixedSize(true);
         binding.rvMatches.setLayoutManager(new LinearLayoutManager(this));
 
+        findMatchesFromApi();
+    }
+
+    private void findMatchesFromApi() {
+        binding.srlMatches.setRefreshing(true);
         api.getMatches().enqueue(new Callback<List<Match>>() {
             @Override
             public void onResponse(Call<List<Match>> call, Response<List<Match>> response) {
@@ -71,12 +85,13 @@ public class MainActivity extends AppCompatActivity {
                 } else{
                     showErrorMessage();
                 }
-
+                binding.srlMatches.setRefreshing(false);
             }
 
             @Override
             public void onFailure(Call<List<Match>> call, Throwable t) {
                 showErrorMessage();
+                binding.rvMatches.setAdapter(matchesAdapter);
             }
         });
     }
