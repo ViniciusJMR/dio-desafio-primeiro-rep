@@ -7,7 +7,7 @@
 		},
 		"mandante":{
 			"nome":"Brasil",
-			"força":5,
+			"forca":5,
 			"imagem":"https://www.bandeirasnacionais.com/data/flags/normal/br.png"
 		},
 		"visitante":{
@@ -24,7 +24,7 @@
 		},
 		"mandante":{
 			"nome":"Brasil",
-			"força":5,
+			"forca":5,
 			"imagem":"https://www.bandeirasnacionais.com/data/flags/normal/br.png"
 		},
 		"visitante":{
@@ -41,7 +41,7 @@
 		},
 		"mandante":{
 			"nome":"Uruguay",
-			"força":5,
+			"forca":5,
 			"imagem":"https://www.bandeirasnacionais.com/data/flags/normal/uy.png"
 		},
 		"visitante":{
