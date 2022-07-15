@@ -22,11 +22,15 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHold
         this.matches = matches;
     }
 
+    public List<Match> getMatches() {
+        return matches;
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        MatchItemBinding binding = MatchItemBinding.inflate(layoutInflater);
+        MatchItemBinding binding = MatchItemBinding.inflate(layoutInflater, parent, false);
         return new ViewHolder(binding);
     }
 
@@ -34,18 +38,29 @@ public class MatchesAdapter extends RecyclerView.Adapter<MatchesAdapter.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Context context = holder.itemView.getContext();
         Match match = matches.get(position);
+        String score;
 
         //Adapta os dados da partida recuperada da api para o layout
+
+        //Para imagens redondas
+        //Glide.with(context).load(match.getHomeTeam().getImage()).into(holder.binding.ivFirstTeam);
         Glide.with(context)
                 .load(match.getHomeTeam().getImage())
                 .into(holder.binding.ivFirstTeam);
-        //Para imagens redondas
-        //Glide.with(context).load(match.getHomeTeam().getImage()).into(holder.binding.ivFirstTeam);
-
         holder.binding.tvFirstTeamName.setText(match.getHomeTeam().getName());
+        if (match.getHomeTeam().getScore() != null){
+            score = String.valueOf(match.getHomeTeam().getScore());
+            holder.binding.tvFirstTeamScore.setText(score);
+
+        }
+
         Glide.with(context)
                 .load(match.getAwayTeam().getImage())
                 .into(holder.binding.ivSecondTeam);
+        if (match.getAwayTeam().getScore() != null){
+            score = String.valueOf(match.getAwayTeam().getScore());
+            holder.binding.tvSecondTeamScore.setText(score);
+        }
         holder.binding.tvSecondTeamName.setText(match.getAwayTeam().getName());
 
     }
