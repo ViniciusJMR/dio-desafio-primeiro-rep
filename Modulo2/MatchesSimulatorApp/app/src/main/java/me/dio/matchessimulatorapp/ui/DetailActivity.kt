@@ -45,7 +45,7 @@ class DetailActivity : AppCompatActivity() {
             binding.rbAwayTeamStars.rating = it.awayTeam.stars.toFloat()
 
             if(it.awayTeam.score != null)
-                binding.tvAwayTeamScore.text = it.awayTeam?.score.toString()
+                binding.tvAwayTeamScore.text = it.awayTeam.score.toString()
 
         }
     }
