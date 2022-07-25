@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">imc-app</string>
+    <string name="app_name">native_resource</string>
+
+    <string name="button_calendar_event">Set calendar event!</string>
 </resources>

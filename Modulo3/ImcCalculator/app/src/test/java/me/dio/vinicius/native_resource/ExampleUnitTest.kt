@@ -1,4 +1,4 @@
-package me.dio.vinicius.imc_app
+package me.dio.vinicius.native_resource
 
 import org.junit.Test
 

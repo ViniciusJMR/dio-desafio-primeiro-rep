@@ -1,4 +1,4 @@
-package me.dio.vinicius.imc_app
+package me.dio.vinicius.native_resource
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
