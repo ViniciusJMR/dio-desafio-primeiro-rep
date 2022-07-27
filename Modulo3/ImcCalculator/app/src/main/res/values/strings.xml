@@ -4,4 +4,5 @@
     <string name="button_calendar_event">Set calendar event!</string>
     <string name="selected_image">Imagem a ser selecionada pelo usuário</string>
     <string name="txt_choose_image">Selecione uma imagem</string>
+    <string name="title_activity_maps">MapsActivity</string>
 </resources>

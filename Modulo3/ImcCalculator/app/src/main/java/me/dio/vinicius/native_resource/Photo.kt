@@ -46,17 +46,18 @@ class Photo : AppCompatActivity() {
         permissions: Array<out String>,
         grantResults: IntArray
     ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         when(requestCode) {
             PERMISSION_CODE -> {
                 if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)
-                    pickImageFromGallery(requestCode)
+                    pickImageFromGallery()
                 else
                     Toast.makeText(this, "Permissão Negada", Toast.LENGTH_SHORT).show()
             }
         }
     }
 
-    private fun pickImageFromGallery(requestCode : Int) {
+    private fun pickImageFromGallery() {
         //FIXME Encontrar a nova solução para recuperar uma imagem da galeria
 //        var resultLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){ result ->
 //            if(result.resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICK_CODE){
@@ -69,5 +70,6 @@ class Photo : AppCompatActivity() {
 //        startActivityForResult(intent, IMAGE_PICK_CODE)
     }
 
+    //TODO implementar intent para a câmera
 
 }
